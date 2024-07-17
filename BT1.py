@@ -7,6 +7,16 @@ root.title("Frame Recorder")
 root.geometry("600x300")
 root.configure(bg='#DA70D6')  # Màu nền tùy chỉnh
 
+# Hàm xử lý sự kiện
+def pause():
+    status_label.config(text="Recording Paused")
+
+def start():    
+    status_label.config(text="Recording Started")
+
+def end():
+    status_label.config(text="Recording Ended")
+
 # Nhãn tiêu đề
 title_label = tk.Label(root, text="Frame Recorder", font=("Helvetica", 24), bg='#DA70D6')
 title_label.pack(pady=10)
@@ -28,13 +38,13 @@ fps_text_label.pack(side=tk.LEFT)
 button_frame = tk.Frame(root, bg='#DA70D6')
 button_frame.pack(pady=20)
 
-pause_button = tk.Button(button_frame, text="Pause", font=("Helvetica", 14))
+pause_button = tk.Button(button_frame, text="Pause", font=("Helvetica", 14), command=pause)
 pause_button.pack(side=tk.LEFT, padx=10)
 
-start_button = tk.Button(button_frame, text="Start", font=("Helvetica", 14))
+start_button = tk.Button(button_frame, text="Start", font=("Helvetica", 14), command=start)
 start_button.pack(side=tk.LEFT, padx=10)
 
-end_button = tk.Button(button_frame, text="End", font=("Helvetica", 14))
+end_button = tk.Button(button_frame, text="End", font=("Helvetica", 14), command=end)
 end_button.pack(side=tk.LEFT, padx=10)
 
 # Nhãn trạng thái
